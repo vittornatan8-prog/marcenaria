@@ -1,299 +1,406 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Seu Nome — Móveis Planejados</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts (equivalente ao estilo da imagem: serif editorial + sans limpa) -->
+  <!-- SEO -->
+  <title>Moderna | Marcenaria Planejada de Alto Padrão</title>
+  <meta name="description" content="A Moderna cria móveis planejados sob medida que unem design autoral, qualidade de fabricação própria e atendimento exclusivo para transformar espaços em sonhos.">
+  <meta name="keywords" content="marcenaria planejada, móveis planejados, moveis sob medida, design de interiores, marcenaria de alto padrão">
+  <meta name="author" content="Moderna Marcenaria Planejada">
+  <link rel="canonical" href="https://www.moderna.com.br/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Moderna | Marcenaria Planejada de Alto Padrão">
+  <meta property="og:description" content="Móveis planejados sob medida, design autoral e atendimento exclusivo. Conheça os projetos da Moderna.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=1200&q=80&auto=format&fit=crop">
+  <meta property="og:url" content="https://www.moderna.com.br/">
+  <meta property="og:site_name" content="Moderna">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Moderna Marcenaria Planejada",
+    "image": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=1200&q=80&auto=format&fit=crop",
+    "telephone": "+55-54-3055-1200",
+    "email": "contato@moderna.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua das Marcenarias, 320",
+      "addressLocality": "Bento Gonçalves",
+      "addressRegion": "RS",
+      "addressCountry": "BR"
+    }
+  }
+  </script>
 </head>
-
 <body>
-  <!-- HEADER -->
-  <header class="header" id="top">
-    <div class="container">
-      <div class="header-row">
-        <a class="brand" href="#top" aria-label="Voltar ao topo">
-          <span class="brand-name">Seu Nome</span>
-        </a>
 
-        <nav class="nav" aria-label="Menu principal">
-          <a href="#institucional">Institucional</a>
-          <a href="#portfolio">Portfólio</a>
-          <a href="#showroom">Showroom</a>
-          <a href="#contato">Contato</a>
-        </nav>
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#inicio" class="header__logo">Moderna</a>
 
-        <div class="header-actions">
-          <a class="btn" href="#contato">Solicitar orçamento</a>
+      <nav class="header__nav" id="nav" aria-label="Navegação principal">
+        <ul class="nav__list">
+          <li><a href="#inicio" class="nav__link">Início</a></li>
+          <li><a href="#historia" class="nav__link">História</a></li>
+          <li><a href="#projetos" class="nav__link">Projetos</a></li>
+          <li><a href="#contato" class="nav__link">Contato</a></li>
+        </ul>
+      </nav>
 
-          <button class="burger" id="burger" aria-label="Abrir menu" aria-controls="drawer" aria-expanded="false">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
+      <button class="header__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <!-- MOBILE DRAWER -->
-  <aside class="mobile-drawer" id="drawer" aria-hidden="true">
-    <div class="mobile-backdrop" data-close></div>
-    <div class="mobile-panel" role="dialog" aria-modal="true" aria-label="Menu">
-      <div class="mobile-top">
-        <div class="brand">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span class="brand-name">Seu Nome</span>
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="inicio">
+    <div class="hero__slides" id="heroSlides">
+      <div class="hero__slide is-active" style="background-image:url('img/hero1.png')"></div>
+      <div class="hero__slide" style="background-image:url('https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=1600&q=80&auto=format&fit=crop')"></div>
+      <div class="hero__slide" style="background-image:url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1600&q=80&auto=format&fit=crop')"></div>
+    </div>
+    <div class="hero__overlay"></div>
+
+    <div class="hero__content">
+      <div class="hero__box" data-reveal="fade-right">
+        <h1 class="hero__title">Ambientes únicos,<br>feitos sob medida</h1>
+        <p class="hero__text">Criamos móveis planejados que unem funcionalidade, design autoral e a essência de quem vive cada espaço.</p>
+        <div class="hero__actions">
+          <a href="#projetos" class="btn btn--primary">Ver Projetos</a>
+          <a href="#contato" class="btn btn--secondary">Fale Conosco</a>
         </div>
-        <button class="close" data-close aria-label="Fechar menu">✕</button>
+      </div>
+    </div>
+
+    <div class="hero__social">
+      <a href="#" aria-label="Facebook da Moderna" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M13.5 9H15V6h-1.5C11.6 6 10 7.6 10 9.5V11H8v3h2v7h3v-7h2.1l.4-3H13v-1.2c0-.5.4-.8.9-.8H13.5V9z"/></svg>
+      </a>
+      <a href="#" aria-label="Instagram da Moderna" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM12 2c-2.7 0-3.1 0-4.2.1-1 .05-1.7.2-2.3.5-.6.2-1.2.6-1.7 1.1-.5.5-.8 1-1.1 1.7-.2.6-.4 1.3-.5 2.3C2.1 8.9 2 9.3 2 12s0 3.1.1 4.2c.05 1 .2 1.7.5 2.3.2.6.6 1.2 1.1 1.7.5.5 1 .8 1.7 1.1.6.2 1.3.4 2.3.5C8.9 21.9 9.3 22 12 22s3.1 0 4.2-.1c1-.05 1.7-.2 2.3-.5.6-.2 1.2-.6 1.7-1.1.5-.5.8-1 1.1-1.7.2-.6.4-1.3.5-2.3.1-1.1.1-1.5.1-4.2s0-3.1-.1-4.2c-.05-1-.2-1.7-.5-2.3-.2-.6-.6-1.2-1.1-1.7-.5-.5-1-.8-1.7-1.1-.6-.2-1.3-.4-2.3-.5C15.1 2 14.7 2 12 2zm0 4a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm5.7-.4a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0z"/></svg>
+      </a>
+      <a href="#" aria-label="Pinterest da Moderna" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 3 5.7 3 10.1c0 2.6 1.4 4.7 3.5 5.5.3.1.5 0 .6-.3l.3-1c.1-.3 0-.4-.1-.6-.4-.5-.7-1.4-.7-2.4 0-3.1 2.3-5.9 6.1-5.9 3.3 0 5.1 2 5.1 4.7 0 3.5-1.6 6.5-3.9 6.5-1.3 0-2.2-1-1.9-2.3.4-1.5 1.1-3.1 1.1-4.2 0-1-.5-1.8-1.6-1.8-1.2 0-2.2 1.3-2.2 3 0 1.1.4 1.8.4 1.8l-1.5 6.4c-.4 1.9-.1 4.2 0 4.4 0 .1.2.2.3.1 1.1-1.5 1.5-1.5 2.9-3 .5.1 1 .2 1.6.2 5 0 8.4-4 8.4-9.3C21.4 5.6 17.5 2 12 2z"/></svg>
+      </a>
+    </div>
+
+    <div class="hero__indicators" id="heroIndicators">
+      <button class="hero__indicator is-active" data-slide="0">01</button>
+      <button class="hero__indicator" data-slide="1">02</button>
+      <button class="hero__indicator" data-slide="2">03</button>
+    </div>
+  </section>
+
+  <!-- ========== HISTÓRIA ========== -->
+  <section class="history" id="historia">
+    <div class="container history__inner">
+      <div class="history__media" data-reveal="fade-right">
+        <div class="history__shape" aria-hidden="true"></div>
+        <img class="history__img" src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80&auto=format&fit=crop" alt="Suíte planejada assinada pela Moderna" width="480" height="580" loading="lazy">
       </div>
 
-      <nav class="mobile-nav">
-        <a href="#institucional" data-link>Institucional</a>
-        <a href="#portfolio" data-link>Portfólio</a>
-        <a href="#showroom" data-link>Showroom</a>
-        <a href="#contato" data-link>Contato</a>
+      <div class="history__content" data-reveal="fade-left">
+        <span class="eyebrow">Desde 1994</span>
+        <h2 class="section-title">Nossa História</h2>
+        <p>Tudo começou em uma pequena oficina em Bento Gonçalves, quando o marceneiro Aloísio Menegotto decidiu transformar sua paixão pela madeira em um ofício. No início, cada peça era feita à mão, uma a uma, para vizinhos e amigos que admiravam seu cuidado com os detalhes.</p>
+        <p>Com o tempo, a pequena oficina cresceu, ganhou máquinas próprias e uma equipe apaixonada pelo mesmo propósito: projetar móveis que se encaixam perfeitamente na vida de cada cliente. Hoje a Moderna é reconhecida por unir tradição marceneira e design contemporâneo em cada ambiente que assina.</p>
+
+        <div class="history__stats">
+          <div class="stat">
+            <span class="stat__number" data-count="3500">0</span>
+            <span class="stat__label">Clientes atendidos</span>
+          </div>
+          <div class="stat">
+            <span class="stat__number" data-count="2800">0</span>
+            <span class="stat__label">Projetos entregues</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BENEFÍCIOS ========== -->
+  <section class="benefits">
+    <div class="container">
+      <div class="benefits__grid">
+
+        <div class="benefit-card" data-reveal="fade-up">
+          <div class="benefit-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v9.5a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10"/></svg>
+          </div>
+          <h3>Fabricação Própria</h3>
+          <p>Contamos com fábrica e maquinário de última geração, trabalhando somente com materiais de alta qualidade e durabilidade.</p>
+        </div>
+
+        <div class="benefit-card" data-reveal="fade-up">
+          <div class="benefit-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="m17 8 2 2 4-4"/></svg>
+          </div>
+          <h3>Atendimento Exclusivo</h3>
+          <p>Acompanhamos cada cliente de perto, ouvindo suas necessidades para superar expectativas em todos os detalhes.</p>
+        </div>
+
+        <div class="benefit-card" data-reveal="fade-up">
+          <div class="benefit-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <h3>Entrega no Prazo</h3>
+          <p>O cumprimento de prazos é prioridade: trabalhamos para garantir que seus móveis cheguem exatamente quando combinado.</p>
+        </div>
+
+        <div class="benefit-card" data-reveal="fade-up">
+          <div class="benefit-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/></svg>
+          </div>
+          <h3>Pagamento Facilitado</h3>
+          <p>Diversas opções de pagamento para atender às necessidades de cada cliente: cartão, débito, transferência e mais.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJETOS ========== -->
+  <section class="projects" id="projetos">
+    <div class="container">
+      <h2 class="section-title section-title--center" data-reveal="fade-up">Projetos</h2>
+
+      <div class="projects__filters" data-reveal="fade-up">
+        <button class="filter-btn is-active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="cozinha">Cozinhas</button>
+        <button class="filter-btn" data-filter="sala">Salas</button>
+        <button class="filter-btn" data-filter="dormitorio">Dormitórios</button>
+        <button class="filter-btn" data-filter="banheiro">Banheiros</button>
+        <button class="filter-btn" data-filter="outros">Outros</button>
+      </div>
+
+      <div class="projects__grid" id="projectsGrid">
+
+        <figure class="project-card" data-category="cozinha" data-reveal="fade-up">
+          <img data-src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=700&q=80&auto=format&fit=crop" alt="Cozinha contemporânea planejada com ilha central" loading="lazy">
+          <figcaption><span>Cozinha Contemporânea</span></figcaption>
+        </figure>
+
+        <figure class="project-card" data-category="sala" data-reveal="fade-up">
+          <img data-src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=700&q=80&auto=format&fit=crop" alt="Sala de estar planejada e aconchegante" loading="lazy">
+          <figcaption><span>Sala de Estar Aconchegante</span></figcaption>
+        </figure>
+
+        <figure class="project-card" data-category="banheiro" data-reveal="fade-up">
+          <img data-src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=700&q=80&auto=format&fit=crop" alt="Banheiro planejado estilo spa" loading="lazy">
+          <figcaption><span>Banheiro Spa</span></figcaption>
+        </figure>
+
+        <figure class="project-card" data-category="cozinha" data-reveal="fade-up">
+          <img data-src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&q=80&auto=format&fit=crop" alt="Cozinha planejada estilo industrial" loading="lazy">
+          <figcaption><span>Cozinha Industrial Chef</span></figcaption>
+        </figure>
+
+        <figure class="project-card" data-category="sala" data-reveal="fade-up">
+          <img data-src="https://images.unsplash.com/photo-1585128792020-803d29415281?w=700&q=80&auto=format&fit=crop" alt="Sala de jantar planejada e integrada" loading="lazy">
+          <figcaption><span>Sala de Jantar Integrada</span></figcaption>
+        </figure>
+
+        <figure class="project-card" data-category="dormitorio" data-reveal="fade-up">
+          <img data-src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=700&q=80&auto=format&fit=crop" alt="Quarto infantil planejado com beliche" loading="lazy">
+          <figcaption><span>Quarto Infantil com Beliche</span></figcaption>
+        </figure>
+
+        <figure class="project-card" data-category="dormitorio" data-reveal="fade-up">
+          <img data-src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=700&q=80&auto=format&fit=crop" alt="Suíte master planejada" loading="lazy">
+          <figcaption><span>Suíte Master</span></figcaption>
+        </figure>
+
+        <figure class="project-card" data-category="dormitorio" data-reveal="fade-up">
+          <img data-src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=700&q=80&auto=format&fit=crop" alt="Quarto de casal planejado clean" loading="lazy">
+          <figcaption><span>Quarto de Casal Clean</span></figcaption>
+        </figure>
+
+        <figure class="project-card" data-category="banheiro" data-reveal="fade-up">
+          <img data-src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=700&q=80&auto=format&fit=crop" alt="Banheiro suíte planejado" loading="lazy">
+          <figcaption><span>Banheiro Suíte</span></figcaption>
+        </figure>
+
+        <figure class="project-card" data-category="outros" data-reveal="fade-up">
+          <img data-src="https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=700&q=80&auto=format&fit=crop" alt="Closet planejado" loading="lazy">
+          <figcaption><span>Closet Planejado</span></figcaption>
+        </figure>
+
+        <figure class="project-card" data-category="cozinha" data-reveal="fade-up">
+          <img data-src="https://images.unsplash.com/photo-1556909212-d5b604d0c90d?w=700&q=80&auto=format&fit=crop" alt="Cozinha planejada compacta com bancada" loading="lazy">
+          <figcaption><span>Cozinha Compacta</span></figcaption>
+        </figure>
+
+        <figure class="project-card" data-category="outros" data-reveal="fade-up">
+          <img data-src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=700&q=80&auto=format&fit=crop" alt="Home office planejado" loading="lazy">
+          <figcaption><span>Home Office Compacto</span></figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTATO ========== -->
+  <section class="contact" id="contato">
+    <div class="container contact__inner">
+
+      <div class="contact__form-wrap" data-reveal="fade-right">
+        <h2 class="section-title">Contato</h2>
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" autocomplete="name" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="telefone">Telefone</label>
+              <input type="tel" id="telefone" name="telefone" autocomplete="tel" required>
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="assunto">Assunto</label>
+            <input type="text" id="assunto" name="assunto" required>
+          </div>
+
+          <div class="form-group">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--primary">Enviar</button>
+          <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="contact__map" data-reveal="fade-left">
+        <iframe
+          src="https://www.google.com/maps?q=Bento+Gonçalves+-+RS&output=embed"
+          width="100%" height="100%" style="border:0"
+          allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Localização da Moderna Marcenaria Planejada"></iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== DEPOIMENTOS ========== -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title section-title--center" data-reveal="fade-up">Depoimentos</h2>
+
+      <div class="testimonial-carousel">
+        <button class="carousel-arrow carousel-arrow--prev" id="prevTestimonial" aria-label="Depoimento anterior">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+
+        <div class="testimonial-track" id="testimonialTrack">
+          <div class="testimonial is-active">
+            <img data-src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=160&q=80&auto=format&fit=crop&crop=faces" alt="Foto de Marina Duarte" class="testimonial__photo" loading="lazy">
+            <h3 class="testimonial__name">Marina Duarte</h3>
+            <div class="testimonial__stars" aria-label="5 de 5 estrelas">★★★★★</div>
+            <p class="testimonial__text">A equipe entendeu exatamente o que eu precisava. O resultado ficou muito acima do que eu imaginava, com um acabamento impecável.</p>
+          </div>
+          <div class="testimonial">
+            <img data-src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=160&q=80&auto=format&fit=crop&crop=faces" alt="Foto de Rafael Nogueira" class="testimonial__photo" loading="lazy">
+            <h3 class="testimonial__name">Rafael Nogueira</h3>
+            <div class="testimonial__stars" aria-label="5 de 5 estrelas">★★★★★</div>
+            <p class="testimonial__text">Profissionalismo do início ao fim. O prazo combinado foi respeitado e a comunicação durante o projeto foi excelente.</p>
+          </div>
+          <div class="testimonial">
+            <img data-src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=160&q=80&auto=format&fit=crop&crop=faces" alt="Foto de Eduardo Bittencourt" class="testimonial__photo" loading="lazy">
+            <h3 class="testimonial__name">Eduardo Bittencourt</h3>
+            <div class="testimonial__stars" aria-label="5 de 5 estrelas">★★★★★</div>
+            <p class="testimonial__text">Contratamos a Moderna para o escritório e para o quarto das crianças. Ficamos tão satisfeitos que já estamos planejando a próxima etapa.</p>
+          </div>
+        </div>
+
+        <button class="carousel-arrow carousel-arrow--next" id="nextTestimonial" aria-label="Próximo depoimento">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+
+      <div class="footer__col footer__col--brand">
+        <a href="#inicio" class="footer__logo">Moderna</a>
+        <p>Transformando espaços em sonhos através de móveis planejados sob medida.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13.5 9H15V6h-1.5C11.6 6 10 7.6 10 9.5V11H8v3h2v7h3v-7h2.1l.4-3H13v-1.2c0-.5.4-.8.9-.8H13.5V9z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM12 2c-2.7 0-3.1 0-4.2.1-1 .05-1.7.2-2.3.5-.6.2-1.2.6-1.7 1.1-.5.5-.8 1-1.1 1.7-.2.6-.4 1.3-.5 2.3C2.1 8.9 2 9.3 2 12s0 3.1.1 4.2c.05 1 .2 1.7.5 2.3.2.6.6 1.2 1.1 1.7.5.5 1 .8 1.7 1.1.6.2 1.3.4 2.3.5C8.9 21.9 9.3 22 12 22s3.1 0 4.2-.1c1-.05 1.7-.2 2.3-.5.6-.2 1.2-.6 1.7-1.1.5-.5.8-1 1.1-1.7.2-.6.4-1.3.5-2.3.1-1.1.1-1.5.1-4.2s0-3.1-.1-4.2c-.05-1-.2-1.7-.5-2.3-.2-.6-.6-1.2-1.1-1.7-.5-.5-1-.8-1.7-1.1-.6-.2-1.3-.4-2.3-.5C15.1 2 14.7 2 12 2zm0 4a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm5.7-.4a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0z"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 3 5.7 3 10.1c0 2.6 1.4 4.7 3.5 5.5.3.1.5 0 .6-.3l.3-1c.1-.3 0-.4-.1-.6-.4-.5-.7-1.4-.7-2.4 0-3.1 2.3-5.9 6.1-5.9 3.3 0 5.1 2 5.1 4.7 0 3.5-1.6 6.5-3.9 6.5-1.3 0-2.2-1-1.9-2.3.4-1.5 1.1-3.1 1.1-4.2 0-1-.5-1.8-1.6-1.8-1.2 0-2.2 1.3-2.2 3 0 1.1.4 1.8.4 1.8l-1.5 6.4c-.4 1.9-.1 4.2 0 4.4 0 .1.2.2.3.1 1.1-1.5 1.5-1.5 2.9-3 .5.1 1 .2 1.6.2 5 0 8.4-4 8.4-9.3C21.4 5.6 17.5 2 12 2z"/></svg></a>
+        </div>
+        <div class="footer__payments" aria-label="Formas de pagamento aceitas">
+          <span class="payment-badge">Visa</span>
+          <span class="payment-badge">Mastercard</span>
+          <span class="payment-badge">Pix</span>
+          <span class="payment-badge">Paypal</span>
+        </div>
+      </div>
+
+      <nav class="footer__col" aria-label="Menu do rodapé">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#historia">História</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
       </nav>
 
-      <a class="btn" style="width:100%; justify-content:center;" href="#contato" data-link>Solicitar orçamento</a>
+      <div class="footer__col">
+        <h4>Contato</h4>
+        <address>
+          Rua das Marcenarias, 320<br>
+          Centro – Bento Gonçalves / RS<br>
+          (54) 3055-1200 · (54) 99812-3400<br>
+          contato@moderna.com.br
+        </address>
+      </div>
+
     </div>
-  </aside>
 
-  <!-- HERO -->
-  <main>
-    <section class="hero" aria-label="Seção principal">
-      <div class="hero-inner container">
-        <div class="hero-center">
-          <h1 class="hero-title">Seu Nome</h1>
-          <p class="hero-sub">Sua história merece um cenário à altura</p>
-          <div class="scroll-indicator" aria-hidden="true"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about" id="institucional">
+    <div class="footer__bottom">
       <div class="container">
-        <div class="card about-grid reveal">
-          <div>
-            <div class="kicker">desde 2016</div>
-            <h2 class="h-serif">Seu Nome</h2>
-            <p>
-              Referência em móveis planejados e soluções sob medida. Um processo que une
-              precisão, estética e funcionalidade — do projeto ao acabamento final.
-            </p>
-            <p>
-              Nosso cuidado está nos detalhes: medidas exatas, materiais selecionados e
-              acompanhamento próximo para garantir um resultado coerente com o seu espaço.
-            </p>
-
-            <div class="meta">
-              <span class="pill"><i></i> Atendimento consultivo</span>
-              <span class="pill"><i></i> Projeto sob medida</span>
-              <span class="pill"><i></i> Acabamento premium</span>
-            </div>
-
-            <div class="stats">
-              <div class="stat">
-                <strong>+ 12</strong>
-                <span>Anos de mercado</span>
-              </div>
-              <div class="stat">
-                <strong>+ 2.800</strong>
-                <span>Projetos entregues</span>
-              </div>
-            </div>
-
-            <div style="margin-top:18px;">
-              <a class="btn-dark btn" href="#portfolio" style="border-color: transparent;">Saiba mais</a>
-            </div>
-          </div>
-
-          <div class="about-figure" role="img" aria-label="Ambiente planejado"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- BAND / QUOTE -->
-    <section class="band" aria-label="Frase de impacto">
-      <div class="band-wrap">
-        <div class="container band-inner reveal">
-          <p>“A arte de transformar espaços em cenários que contam histórias.”</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section>
-      <div class="container">
-        <div class="services-grid">
-          <div class="services-figure reveal" aria-label="Imagem de cozinha planejada"></div>
-
-          <div class="card services-card reveal">
-            <div class="kicker">móveis planejados</div>
-            <h3 class="h-serif">Móveis Planejados<br/>e Decoração.</h3>
-
-            <div class="features">
-              <div class="feature">
-                <b>Design exclusivo</b>
-                <p>Composição elegante, proporções bem resolvidas e escolhas de materiais que valorizam o ambiente.</p>
-              </div>
-              <div class="feature">
-                <b>Qualidade e durabilidade</b>
-                <p>Ferragens e acabamentos selecionados para performance no uso real, com consistência no tempo.</p>
-              </div>
-              <div class="feature">
-                <b>Entrega e montagem</b>
-                <p>Processo organizado, montagem cuidadosa e alinhamento final para um resultado limpo e preciso.</p>
-              </div>
-            </div>
-
-            <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="btn-dark btn" href="#contato" style="border-color: transparent;">Solicitar orçamento</a>
-              <a class="pill" href="#portfolio" style="padding: 12px 14px;">Ver portfólio</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALLERY / PORTFOLIO -->
-    <section class="gallery" id="portfolio">
-      <div class="container">
-        <div class="kicker reveal">portfólio</div>
-        <div class="gallery-grid" style="margin-top: 14px;">
-          <div class="tile big reveal" style="background-image: var(--img-bedroom);" data-lightbox="Dormitórios">
-            <span>Dormitórios</span>
-          </div>
-          <div class="tile reveal" style="background-image: var(--img-kitchen);" data-lightbox="Cozinhas">
-            <span>Cozinhas</span>
-          </div>
-          <div class="tile reveal" style="background-image: var(--img-living);" data-lightbox="Salas e Ambientes Integrados">
-            <span>Salas e Ambientes Integrados</span>
-          </div>
-          <div class="tile wide reveal" style="background-image: var(--img-office);" data-lightbox="Office e Corporativo">
-            <span>Office e Corporativo</span>
-          </div>
-          <div class="tile reveal" style="background-image: var(--img-closet);" data-lightbox="Closets e Outros">
-            <span>Closets e Outros</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SHOWROOM -->
-    <section class="showroom" id="showroom">
-      <div class="container">
-        <div class="showroom-grid">
-          <div class="reveal">
-            <div class="kicker">showroom</div>
-            <h4 class="h-serif">Showroom</h4>
-            <p>
-              Venha conhecer nosso espaço e ver de perto materiais, acabamentos e soluções
-              que elevam o nível do seu projeto.
-            </p>
-            <p>
-              Endereço: Av. Exemplo, 123 — Centro • Cidade/UF
-            </p>
-            <a class="btn-dark btn" href="#" onclick="return false" style="border-color: transparent;">Abrir no Google Maps</a>
-          </div>
-
-          <div class="showroom-figure reveal" role="img" aria-label="Imagem do showroom"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="contact" id="contato">
-      <div class="container">
-        <h5 class="h-serif reveal">Solicite um orçamento</h5>
-        <p class="sub reveal">
-          Conte sobre seu ambiente e o que você deseja transformar. Respondemos com clareza, prazos e próximos passos.
-        </p>
-
-        <form id="form" class="reveal" novalidate>
-          <div class="form-row">
-            <div class="field">
-              <label for="nome">Nome</label>
-              <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Seu nome" required />
-            </div>
-            <div class="field">
-              <label for="telefone">Telefone</label>
-              <input id="telefone" name="telefone" type="tel" autocomplete="tel" placeholder="(00) 00000-0000" required />
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="email">E-mail</label>
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="seuemail@dominio.com" required />
-          </div>
-
-          <div class="field">
-            <label for="mensagem">Descreva seu projeto</label>
-            <textarea id="mensagem" name="mensagem" placeholder="Ex.: cozinha planejada, medidas aproximadas, estilo desejado, prazo…" required></textarea>
-          </div>
-
-          <div class="form-actions">
-            <span class="helper">Ao enviar, você concorda em receber nosso retorno por e-mail/WhatsApp.</span>
-            <button class="btn-dark btn" type="submit" style="border-color: transparent;">Enviar mensagem</button>
-          </div>
-        </form>
-
-        <div class="toast" id="toast" role="status" aria-live="polite"></div>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <div class="footer-row">
-        <div class="footer-left">
-          <div class="brand">
-            <span class="brand-mark" aria-hidden="true"></span>
-            <span class="brand-name">Seu Nome</span>
-          </div>
-          <small>
-            Móveis Planejados © <span id="year"></span>. Todos os direitos reservados.<br/>
-            CNPJ 00.000.000/0000-00 • contato@seudominio.com
-          </small>
-        </div>
-
-        <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-end;">
-          <div class="footer-nav">
-            <a href="#top">Home</a>
-            <a href="#institucional">Institucional</a>
-            <a href="#portfolio">Portfólio</a>
-            <a href="#contato">Contato</a>
-          </div>
-          <div class="social" aria-label="Redes sociais">
-            <a href="#" onclick="return false" aria-label="Instagram">IG</a>
-            <a href="#" onclick="return false" aria-label="Facebook">FB</a>
-            <a href="#" onclick="return false" aria-label="Pinterest">PT</a>
-            <a href="#" onclick="return false" aria-label="Google">G</a>
-          </div>
-        </div>
+        <p>&copy; 2026 Moderna Marcenaria Planejada. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
 
-  <!-- LIGHTBOX (simples, opcional) -->
-  <div class="mobile-drawer" id="lightbox" aria-hidden="true">
-    <div class="mobile-backdrop" data-lb-close></div>
-    <div class="mobile-panel" style="background: rgba(10,10,10,.94); width:min(820px, calc(100% - 28px)); right:50%; transform: translate(50%, -8px);">
-      <div class="mobile-top" style="border-bottom-color: rgba(255,255,255,.12);">
-        <div style="color:#fff; font-family: var(--serif); font-size: 20px; letter-spacing:.04em;" id="lbTitle">Ambiente</div>
-        <button class="close" data-lb-close aria-label="Fechar">✕</button>
-      </div>
-      <div id="lbImage" style="border-radius: 16px; overflow:hidden; border:1px solid rgba(255,255,255,.12); min-height: 380px; background-size: cover; background-position:center;"></div>
-      <div style="margin-top: 10px; color: rgba(255,255,255,.72); font-size: 12px; letter-spacing:.14em; text-transform: uppercase;">
-        Clique fora para fechar
-      </div>
-    </div>
-  </div>
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
   <script src="script.js"></script>
 </body>
 </html>

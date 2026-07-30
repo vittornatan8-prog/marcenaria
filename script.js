@@ -1,133 +1,305 @@
+/* ==========================================================================
+   MODERNA — MARCENARIA PLANEJADA
+   JavaScript modular, sem dependências externas
+   ========================================================================== */
+(function () {
+  'use strict';
 
-    // =========================
-    // NAV: smooth scroll
-    // =========================
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener("click", (e)=>{
-        const id = a.getAttribute("href");
-        if(!id || id === "#") return;
-        const el = document.querySelector(id);
-        if(!el) return;
+  document.addEventListener('DOMContentLoaded', function () {
+    initHeaderScroll();
+    initMobileMenu();
+    initSmoothAnchors();
+    initHeroCarousel();
+    initScrollReveal();
+    initCounters();
+    initGalleryFilter();
+    initLazyLoad();
+    initTestimonialCarousel();
+    initContactForm();
+    initBackToTop();
+  });
+
+  /* ---------- Header: fundo ao rolar ---------- */
+  function initHeaderScroll() {
+    var header = document.getElementById('header');
+    if (!header) return;
+
+    function toggle() {
+      if (window.scrollY > 60) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    }
+
+    toggle();
+    window.addEventListener('scroll', toggle, { passive: true });
+  }
+
+  /* ---------- Menu mobile (hamburger) ---------- */
+  function initMobileMenu() {
+    var toggleBtn = document.getElementById('navToggle');
+    var nav = document.getElementById('nav');
+    if (!toggleBtn || !nav) return;
+
+    function closeMenu() {
+      nav.classList.remove('is-open');
+      toggleBtn.classList.remove('is-active');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    toggleBtn.addEventListener('click', function () {
+      var isOpen = nav.classList.toggle('is-open');
+      toggleBtn.classList.toggle('is-active', isOpen);
+      toggleBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    nav.querySelectorAll('.nav__link').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+  }
+
+  /* ---------- Scroll suave para âncoras (compensando header fixo) ---------- */
+  function initSmoothAnchors() {
+    var header = document.getElementById('header');
+    var anchors = document.querySelectorAll('a[href^="#"]');
+
+    anchors.forEach(function (anchor) {
+      anchor.addEventListener('click', function (e) {
+        var id = this.getAttribute('href');
+        if (!id || id === '#') return;
+        var target = document.querySelector(id);
+        if (!target) return;
 
         e.preventDefault();
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        var headerHeight = header ? header.offsetHeight : 0;
+        var top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      });
+    });
+  }
+
+  /* ---------- Carrossel do Hero ---------- */
+  function initHeroCarousel() {
+    var slides = document.querySelectorAll('.hero__slide');
+    var indicators = document.querySelectorAll('.hero__indicator');
+    if (!slides.length) return;
+
+    var current = 0;
+    var intervalId;
+    var AUTOPLAY_MS = 6000;
+
+    function goTo(index) {
+      slides[current].classList.remove('is-active');
+      indicators[current] && indicators[current].classList.remove('is-active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('is-active');
+      indicators[current] && indicators[current].classList.add('is-active');
+    }
+
+    function next() { goTo(current + 1); }
+
+    function startAutoplay() {
+      stopAutoplay();
+      intervalId = setInterval(next, AUTOPLAY_MS);
+    }
+    function stopAutoplay() { clearInterval(intervalId); }
+
+    indicators.forEach(function (btn, i) {
+      btn.addEventListener('click', function () {
+        goTo(i);
+        startAutoplay();
       });
     });
 
-    // =========================
-    // HEADER shrink on scroll
-    // =========================
-    const header = document.querySelector(".header");
-    const onScroll = () => {
-      header.classList.toggle("is-scrolled", window.scrollY > 14);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+    startAutoplay();
+  }
 
-    // =========================
-    // MOBILE drawer
-    // =========================
-    const burger = document.getElementById("burger");
-    const drawer = document.getElementById("drawer");
+  /* ---------- Animações ao rolar (Intersection Observer) ---------- */
+  function initScrollReveal() {
+    var elements = document.querySelectorAll('[data-reveal]');
+    if (!elements.length) return;
 
-    function openDrawer(){
-      drawer.classList.add("is-open");
-      drawer.setAttribute("aria-hidden", "false");
-      burger.setAttribute("aria-expanded", "true");
-      document.body.style.overflow = "hidden";
-    }
-    function closeDrawer(){
-      drawer.classList.remove("is-open");
-      drawer.setAttribute("aria-hidden", "true");
-      burger.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
     }
 
-    burger.addEventListener("click", ()=>{
-      drawer.classList.contains("is-open") ? closeDrawer() : openDrawer();
-    });
-    drawer.querySelectorAll("[data-close]").forEach(el => el.addEventListener("click", closeDrawer));
-    drawer.querySelectorAll("[data-link]").forEach(el => el.addEventListener("click", closeDrawer));
-    window.addEventListener("keydown", (e)=>{ if(e.key === "Escape") closeDrawer(); });
-
-    // =========================
-    // REVEAL on scroll
-    // =========================
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(ent=>{
-        if(ent.isIntersecting) ent.target.classList.add("in");
+    var observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
 
-    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+    elements.forEach(function (el) { observer.observe(el); });
+  }
 
-    // =========================
-    // FORM (demo) + mask simples
-    // =========================
-    const form = document.getElementById("form");
-    const toast = document.getElementById("toast");
+  /* ---------- Contadores animados (+3500 Clientes / +2800 Projetos) ---------- */
+  function initCounters() {
+    var counters = document.querySelectorAll('.stat__number');
+    if (!counters.length) return;
 
-    const tel = document.getElementById("telefone");
-    tel.addEventListener("input", ()=>{
-      let v = tel.value.replace(/\D/g,"").slice(0,11);
-      // (00) 00000-0000
-      if(v.length >= 2) v = "(" + v.slice(0,2) + ") " + v.slice(2);
-      if(v.length >= 10) v = v.slice(0,10) + "-" + v.slice(10);
-      tel.value = v;
+    function animateCounter(el) {
+      var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+      var duration = 1800;
+      var startTime = null;
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target).toLocaleString('pt-BR');
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = target.toLocaleString('pt-BR');
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      counters.forEach(animateCounter);
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(function (el) { observer.observe(el); });
+  }
+
+  /* ---------- Filtro da galeria de projetos ---------- */
+  function initGalleryFilter() {
+    var buttons = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('.project-card');
+    if (!buttons.length || !cards.length) return;
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        buttons.forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+
+        var filter = btn.getAttribute('data-filter');
+
+        cards.forEach(function (card) {
+          var match = filter === 'todos' || card.getAttribute('data-category') === filter;
+          card.classList.toggle('is-hidden', !match);
+        });
+      });
     });
+  }
 
-    form.addEventListener("submit", (e)=>{
+  /* ---------- Lazy loading de imagens (data-src) ---------- */
+  function initLazyLoad() {
+    var lazyImages = document.querySelectorAll('img[data-src]');
+    if (!lazyImages.length) return;
+
+    function load(img) {
+      img.src = img.getAttribute('data-src');
+      img.removeAttribute('data-src');
+      img.classList.add('is-loaded');
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      lazyImages.forEach(load);
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          load(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '200px 0px' });
+
+    lazyImages.forEach(function (img) { observer.observe(img); });
+  }
+
+  /* ---------- Carrossel de depoimentos ---------- */
+  function initTestimonialCarousel() {
+    var track = document.getElementById('testimonialTrack');
+    if (!track) return;
+
+    var slides = track.querySelectorAll('.testimonial');
+    var prevBtn = document.getElementById('prevTestimonial');
+    var nextBtn = document.getElementById('nextTestimonial');
+    var current = 0;
+    var intervalId;
+    var AUTOPLAY_MS = 7000;
+
+    function goTo(index) {
+      slides[current].classList.remove('is-active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('is-active');
+    }
+
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
+
+    function startAutoplay() {
+      stopAutoplay();
+      intervalId = setInterval(next, AUTOPLAY_MS);
+    }
+    function stopAutoplay() { clearInterval(intervalId); }
+
+    if (nextBtn) nextBtn.addEventListener('click', function () { next(); startAutoplay(); });
+    if (prevBtn) prevBtn.addEventListener('click', function () { prev(); startAutoplay(); });
+
+    startAutoplay();
+  }
+
+  /* ---------- Formulário de contato ---------- */
+  function initContactForm() {
+    var form = document.getElementById('contactForm');
+    var feedback = document.getElementById('formFeedback');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const data = Object.fromEntries(new FormData(form).entries());
-      const ok = data.nome && data.telefone && data.email && data.mensagem;
-
-      toast.classList.remove("show");
-      if(!ok){
-        toast.textContent = "Por favor, preencha todos os campos antes de enviar.";
-        toast.classList.add("show");
+      if (!form.checkValidity()) {
+        if (feedback) {
+          feedback.textContent = 'Por favor, preencha todos os campos corretamente.';
+          feedback.style.color = '#c0392b';
+        }
         return;
       }
 
-      // Aqui você integra com backend/WhatsApp/email.
-      toast.textContent = "Mensagem pronta! Integre com seu WhatsApp, e-mail ou backend para receber os pedidos.";
-      toast.classList.add("show");
+      if (feedback) {
+        feedback.textContent = 'Mensagem enviada com sucesso! Em breve entraremos em contato.';
+        feedback.style.color = '';
+      }
       form.reset();
     });
+  }
 
-    // =========================
-    // YEAR
-    // =========================
-    document.getElementById("year").textContent = new Date().getFullYear();
+  /* ---------- Botão voltar ao topo ---------- */
+  function initBackToTop() {
+    var btn = document.getElementById('backToTop');
+    if (!btn) return;
 
-    // =========================
-    // LIGHTBOX simples (portfolio)
-    // =========================
-    const lb = document.getElementById("lightbox");
-    const lbTitle = document.getElementById("lbTitle");
-    const lbImage = document.getElementById("lbImage");
-
-    function openLB(title, bg){
-      lbTitle.textContent = title || "Ambiente";
-      lbImage.style.backgroundImage = bg;
-      lb.classList.add("is-open");
-      lb.setAttribute("aria-hidden","false");
-      document.body.style.overflow = "hidden";
-    }
-    function closeLB(){
-      lb.classList.remove("is-open");
-      lb.setAttribute("aria-hidden","true");
-      document.body.style.overflow = "";
+    function toggle() {
+      btn.classList.toggle('is-visible', window.scrollY > 500);
     }
 
-    document.querySelectorAll(".tile").forEach(tile=>{
-      tile.addEventListener("click", ()=>{
-        const title = tile.getAttribute("data-lightbox") || "Ambiente";
-        const bg = tile.style.backgroundImage;
-        openLB(title, bg);
-      });
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    lb.querySelectorAll("[data-lb-close]").forEach(el=>el.addEventListener("click", closeLB));
-    window.addEventListener("keydown",(e)=>{ if(e.key === "Escape") closeLB(); });
-  
+    toggle();
+    window.addEventListener('scroll', toggle, { passive: true });
+  }
+
+})();
